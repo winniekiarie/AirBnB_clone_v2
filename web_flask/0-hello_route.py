@@ -1,19 +1,19 @@
 #!/usr/bin/python3
-'''Starts a Flask web application.
+'''A simple Flask web application.
 '''
 from flask import Flask
 
+
 app = Flask(__name__)
+'''The Flask application instance.'''
+app.url_map.strict_slashes = False
 
 
-# Define the route for the URL '/'
-@app.route('/', strict_slashes=False)
-def hello_hbnb():
-    """ Displays 'Hello HBNB! """
-    return "Hello HBNB!"
+@app.route('/')
+def index():
+    '''The home page.'''
+    return 'Hello HBNB!'
 
 
-if _name_ == "_main_":
-    # Start the Flask development server
-    # Listen on all available network interfaces (0.0.0.0) and port 5000
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port='5000')
